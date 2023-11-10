@@ -19,7 +19,7 @@ end
 plot(t,f1,"b");
 xlabel("t");
 ylabel("V");
-title("Output Voltage 2c")
+title("Output 2b")
 grid on;
 hold on;
 
