@@ -53,19 +53,15 @@ void minMax(int arraySize){
         printf("%d   ", inputArray[i]);
     }
 
-    for (int i = 0; i < arraySize; ++i) {
+    for (int i = 0; i < arraySize; ++i) { // Find minimum
         min = inputArray[1];
         if(inputArray[i] < inputArray[i+1])
             min = inputArray[i];
     }
 
-    for (int i = 0; i < arraySize; ++i) {
+    for (int i = 0; i < arraySize; ++i) { // Find maximum
         if(inputArray[i] > max)
             max = inputArray[i];
-    }
-    for (int i = 0; i < arraySize; ++i) {
-        if(inputArray[i] < min)
-            min = inputArray[i];
     }
 
     printf("\nThe minimum and the maximum value entered by the user are %d and %d respectively. ",min,max);
