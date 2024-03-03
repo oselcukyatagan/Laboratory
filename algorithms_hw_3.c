@@ -41,25 +41,26 @@ void minMax(int arraySize){
 
     int inputArray[arraySize];
 
-    int min = inputArray[0];
-    int max = inputArray[0];
+    int min;
+    int max;
 
-    for (int i = 0; i < arraySize; ++i) { // Store inputs in the array
+    for (int i = 0; i < arraySize; i++) { // Store inputs in the array
         printf("Write the input %d: ", i + 1);
         scanf("%d", &inputArray[i]);
     }
 
-    for (int i = 0; i < arraySize; ++i) { // Print the array
+    min = max = inputArray[0];
+
+    for (int i = 0; i < arraySize; i++) { // Print the array
         printf("%d   ", inputArray[i]);
     }
 
-    for (int i = 0; i < arraySize; ++i) { // Find minimum
-        min = inputArray[1];
-        if(inputArray[i] < inputArray[i+1])
+    for (int i = 0; i < arraySize; i++) { // Find minimum
+        if(inputArray[i] < min)
             min = inputArray[i];
     }
 
-    for (int i = 0; i < arraySize; ++i) { // Find maximum
+    for (int i = 0; i < arraySize; i++) { // Find maximum
         if(inputArray[i] > max)
             max = inputArray[i];
     }
@@ -106,7 +107,7 @@ int main(){
 
    // printf("%d",sumInputs(10));
    // printf("%d", sumUntilNegative());
-   // minMax(10);
+    minMax(5);
    // rightTriangle(4);
    // pyramid(6);
 
