@@ -19,7 +19,6 @@ int sumInputs(int arraySize){
     }
 
     return sum;
-
 }
 
 int sumUntilNegative() {
@@ -74,7 +73,6 @@ void minMax(int arraySize){
     for (int i = 0; i < arraySize; ++i) { // Clear the array
         inputArray[i] = 0;
     }
-
 }
 
 void rightTriangle(int size){
@@ -105,7 +103,6 @@ void pyramid(int height) {
         printf("\n");
 
     }
-
 }
 
 
