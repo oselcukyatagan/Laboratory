@@ -40,10 +40,13 @@ int sumUntilNegative() {
 
 void minMax(int arraySize){
 
-    int inputArray[arraySize]; // Initialize the array
-    int min, max;
+    int inputArray[arraySize];
+
+    int min = inputArray[0];
+    int max = inputArray[0];
 
     for (int i = 0; i < arraySize; ++i) { // Store inputs in the array
+        printf("Write the input %d: ", i + 1);
         scanf("%d", &inputArray[i]);
     }
 
@@ -57,10 +60,16 @@ void minMax(int arraySize){
             min = inputArray[i];
     }
 
+    for (int i = 0; i < arraySize; ++i) {
+        if(inputArray[i] > max)
+            max = inputArray[i];
+    }
+    for (int i = 0; i < arraySize; ++i) {
+        if(inputArray[i] < min)
+            min = inputArray[i];
+    }
 
-
-
-    printf("\n %d %d",min,max);
+    printf("\nThe minimum and the maximum value entered by the user are %d and %d respectively. ",min,max);
 
     for (int i = 0; i < arraySize; ++i) { // Clear the array
         inputArray[i] = 0;
@@ -95,8 +104,6 @@ void pyramid(int height) {
         }
         printf("\n");
 
-
-
     }
 
 }
@@ -106,7 +113,7 @@ int main(){
 
    // printf("%d",sumInputs(10));
    // printf("%d", sumUntilNegative());
-   // minMax(3);
+   // minMax(10);
    // rightTriangle(4);
    // pyramid(6);
 
