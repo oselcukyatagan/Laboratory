@@ -1,0 +1,268 @@
+\documentclass{article}
+\usepackage{booktabs}
+\usepackage{siunitx}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[english]{babel}
+
+% Set page size and margins
+% Replace `letterpaper' with `a4paper' for UK/EU standard size
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+\title{EED 2412 Laboratory 2 \\ Experiment 1}
+\author{Ömer Selçuk Yatağan}
+
+\begin{document}
+\maketitle
+
+
+\section{Theory}
+
+This experiment was about the OP-AMP. The OP-AMP is essentially a differential amplifier with a high open loop voltage gain $A$.The different OP-AMP configurations allow us to set the voltage gain to our desired value using resistors.
+\subsection{Inverting Amplifier}
+
+\begin{center}
+\includegraphics[width = 10cm, height = 6cm]{inverting.png}
+\end{center}
+
+\begin{center}
+Figure 1: Inverting amplifier configuration
+
+\[V_o = (V_{in}^+ - V_{in}^-)\quad, \quad V_{in}^+ = 0\] 
+\[V_o = - KV_{in}^-  \quad(1.1)\] \[\frac{V{in}^- - V_i}{R_1} + \frac{V{in}^- - V_o}{R_2} = 0 \quad(1.2)\]
+\end{center}
+
+Using Equation 1.1 with Equation 1.2 yields:
+\[V_{o} = \frac{-KV_iR_f}{R_f+R(1+K)}\]
+\quad The $OP-AMP$ is ideal, $\lim_{K\to\infty}$ 
+\[V_o = -Vi\frac{R_2}{R_1} \quad (1.3)\] 
+
+
+
+
+
+\subsection{Inverting Summing Amplifier}
+
+\begin{center}
+\includegraphics[width = 10cm]{summing.png}  \\
+Figure 2: Inverting Summing Amplifier Configuration \\
+\end{center}
+
+Notice that the configuration is the same as the inverting amplifier when the inputs $V_1, V_2\dots V_n$ are shorted. Since we know that the inverting amplifier has negative feedback, we can use the negative feedback properties in this circuit also.
+
+
+\[V{in^-} = V{in^+} = 0\]
+
+Applying KCL at node A,
+\[\frac{0-V_1}{R_1} + \frac{0-V_2}{R_2}\dots+\frac{0-V_n}{R_n} + \frac{0-V_o}{R_f} = 0 \quad (2.1)\]
+
+Equation 2.1 yields,
+\[-\sum_{i=1}^n \frac{x_i}{R_i} = \frac{V_o}{R_f} \quad (2.2)\]
+
+if $R_1 = R_2 \dots = R_n = R_f$,
+    
+\[-\sum_{i=1}^n V_i= V_o \quad (2.3)\]
+
+\subsection{Voltage Controlled Current Source}
+
+\begin{center}
+    \includegraphics[width = 6cm, height = 6cm]{VCCS.png} \\
+    Figure 3: Voltage Controlled Current Source configuration.
+\end{center}
+
+Applying KCL at the node A,
+\[\frac{V_{in}-0}{R_1} + \frac{V_{in}-V_o}{R_2} = 0 \quad (3.1)\]
+
+Applying KCL at the node B,
+\[\frac{V_{in}-V_d}{R_1} + \frac{V_{in} - V_o}{R_2} + \frac{V_{in}}{R_L} = 0 \quad (3.2)\]
+
+Using equation 1 with equation 2 yields,
+\[\frac{V_{in}}{R_L} = \frac{V_d}{R_1}\]
+\[i_L = \frac{V_d}{R1} \quad (3.3)\] 
+
+\section{Applications \& Results}
+
+Before starting the experiment, the oscilloscope was calibrated. The signal generator was set to 1kHz 1V peak-to-peak triangular wave. And the power supply was modified to meet our needs.
+
+\begin{center}
+\includegraphics[width = 8cm, height = 6cm]{oscilloscopeCalibrate} \\
+Figure 4: 1kHz 1V peak-to-peak signal.
+\end{center}
+
+In Figure 4, the oscilloscope was set to 20mV/div and 0.2ms/div. The $V_{max}$ of the signal is calculated by,
+
+\[V_{max} = 20mV * 10 * 2.5 = 0.5V \pm 20mV\] \\
+
+The 10 multiplier is because the probe of the oscilloscope was set to 10x.
+
+The period of the signal can be calculated by,
+
+\[T_{signal} = 0.2ms * 5 = 1ms \pm 0.02ms\]
+\\
+\\
+\\
+\subsection{inverting amplifier circuit}
+The inverting amplifier with gain -1 was constructed using 4.7kOhm resistors with \%5 tolerance as $R_2$ and $R_1$ from figure 1. \\
+
+\begin{center}
+    \includegraphics[width = 8cm, height = 6cm, trim={0 0 10cm 0},clip]{-1gain.jpeg} \\
+    Figure 5: The circuit with -1Gain.
+\end{center}
+
+In Figure 5, the oscilloscope was set to 20mV/div and 0.2ms/div for both Ch1 and Ch2. The $V_{max}$ of the signals are calculated by,
+\[V_{inmax} = 20mV * 10 * 2.5 = 0.5V \pm 20mV\]
+\[V_{outmax} = 20mV * 10 * 2.5 = 0.5V \pm 20mV\] \\
+
+When $V_{in}$ is at its maximum, the $V_o$ is at its minimum  
+
+period of the signals are the same and can be calculated by,
+\[T_{signal} = 0.2ms * 5 = 1ms \pm 0.02ms\] \\
+
+using equation 1.3, the acceptable voltage gain values can be calculated.
+
+\[-\frac{R_2 - \%5R_2}{R_1 + \%5R1} > A_v > -\frac{R_2 +   \%5R_2}{R_1 - \%5R1}  \]
+
+\[-0.90 > A_v > -1.11\] \\
+
+Our circuit's voltage gain can be calculated by,
+\[-\frac{2.5\cdot20mV\cdot10V\pm10mV}{2.4\cdot20mV\cdot10V\pm10mV} = -1.04\]
+
+The calculated voltage gain $A_v$ is within the tolerance values.\\
+
+The oscilloscope was set to X/Y mode,
+
+\begin{center}
+    \includegraphics[width = 8cm, height = 6cm]{-1gainxy.jpeg}\\
+    Figure 6: XY measurement of the circuit.
+\end{center}
+
+The slope of the line is approximately -1 as expected.\\
+
+The inverting amplifier circuit that was design in our preliminary circuit was built. The gain of the circuit was calculated to be -4.7. We chose 4.7kOhm and 1kOhm resistors as  $R_2$ and $R_1$ from figure 1 respectively.
+
+\begin{center}
+    \includegraphics[width = 8cm, height = 6cm]{-4.7gain.jpeg}\\
+    Figure 7: Circuit with -4.7 gain dual measurement
+\end{center}
+In Figure 7, the Ch1 was set to 20mV/div and Ch2 was set to 0.1V/div. The probes were on 10x setting. The T/div was set to 0.1ms. \\
+
+Considering the tolerance values of the resistors, the tolerance of the voltage gain is calculated by equation 1.3,
+\[-\frac{-4700 + \%5(4700)}{1000 - \%5(1000)} < A_v < -\frac{4700 - \%5(4700)}{1000 + \%5(1000)}\]
+\[-5.19 < A_v < -4.25\] \\
+
+The gain of the circuit is calculated,
+\[A_v = -\frac{2.3*0.1V*10}{2.4*20mV*10 \pm 20mV} =- 4.79\]
+\quad noted to be within the tolerance range.\\
+\\ 
+\\ 
+\\
+
+We exceeded the saturation voltage of the OP-AMP
+
+\begin{center}
+    \includegraphics[width = 8cm, height = 6cm]{saturation.jpeg} \\
+    Figure 8: Saturated OP-AMP measurement
+\end{center}
+In Figure 8, Ch1 was set to 0.1V/div and Ch2 was set to 0.5V/div. The probes were on 10x setting. T/div was set to 0.1ms.
+
+We observed that the output got clipped close to our $V_{supply}$ values.
+
+\subsection{Cascade form}
+
+The output of the circuit with -4.7 gain was connected to the input of the circuit with -1 gain.
+
+\begin{center}
+    \includegraphics[width = 8cm, height = 6cm]{cascade.jpeg} \\
+    Figure 9: Cascade form measurement in dual mode.
+\end{center}
+In Figure 9, Ch1 was set to 20mV/div and Ch2 was set to 0.1V/div. The probes were on 10x setting. T/div was set to 0.1ms. \\
+
+Acceptable gain range was calculated
+\[-4.25 * -0.90 < A_v < -1.11 * -5.19 \]
+\[3.83 < Av < 5.76\]
+
+The gain of our circuit was calculated,
+
+\[Av = \frac{2.1*10*0.1V\pm 0.1V}{2.4*10*20mV \pm 20mV} = 4.38\]
+\quad and noted to be within the gain range previously calculated.
+
+\subsection{Inverting Summing Amplifier Circuit}
+
+A resistor was added to the input of the first circuit. And voltage of $V_{i_2} = V_{i_1}$ was applied.
+
+Our voltage gain was approximately 1,  we forgot to take a picture.
+
+\subsection{Voltage controlled current source}
+
+As we could not complete this part due to time, I completed it on a simulation program. To make sure the $\frac{R_1}{R_3} = \frac{R_2}{R_4}$ is satisfied, I placed a 1kOhm resistor as the load resistance. By equation 3.3, the POT is on the right value when the voltage over the laod resistance is 1V. \\
+\[i_LR_L = \frac{V_dR_L}{R_1}\]
+\[V_{load} = \frac{5.1V10^3\si{\ohm}}{5.1\cdot10^3\si{\ohm}} =1V\] \\
+The proteus program does not allow the user to change the POT value slightly so I stopped at 1.01V.
+
+\begin{center}
+    \includegraphics[width = 10cm, height = 7.5cm]{calibrate ct.PNG} \\
+    Figure 10: Calibrating the POT value.
+\end{center}
+
+The $i_L$ values for different load resistances were measured and noted to Table 1. Afterwards, the diode was changed to a different diode with 9.1V zener voltage and the steps were repeated.\\
+
+\begin{center}
+    \includegraphics[width = 10cm, height = 7.5cm]{9.1 ct.PNG}\\
+    Figure 11: The diode changed to satisfy $V_d = 9.1V$ 
+\end{center}
+
+\begin{table}[ht]
+    \centering
+    \begin{tabular}{lllllll}
+        \toprule
+        $i_L$       & 0\si{\ohm}      & 100\si{\ohm}     & 470\si{\ohm}     & 1k\si{\ohm}      & 2.2k\si{\ohm}    & 4.7k\si{\ohm}    \\
+        \midrule
+        $v_d = 5.1V$ & 1mA     & 1.01mA  & 1.01mA  & 1.01mA  & 1.02mA  & 1.04mA  \\
+        $v_d = 9.1V$ & 1.79mA  & 1.79mA  & 1.79mA  & 1.80mA  & 1.81mA  & 1.84mA  \\
+        \bottomrule
+    \end{tabular}
+    \caption{$i_L$ values for different load resistances}
+    \label{tab:my-table}
+\end{table}
+
+\section{Questions}
+1. Why did we use a 1k\si{\ohm} trimpot in the Figure 10? \\
+
+The trimpot was used to satisfy the $\frac{R_1}{R_3} = \frac{R_2}{R_4}$ condition of the voltage controlled current source. By adjusting it's value we can make sure that the condition is satisfied.
+
+2. Why did we use a zener diode in the Figure 10?
+
+The zener diode acts as the $V_d$ from Figure 3. As we used a diode with 5.1V zener voltage, by equation 3.3 we obtained 1mA current flow in the load resistor. $i_L = \frac{5.1V}{5.1\cdot10^3} = 1mA$
+
+3. What is the mathematical model of the circuit in Figure 8 in terms of supplied current $i_L, R_L$ and saturation voltages?
+
+
+
+\section{Conclusion}
+During this experiment, we built different OP-AMP configurations and observed their behavior. For our circuit with designed -1 gain, we obtained -1.04 voltage gain(Figure 5, Figure 6). We noted that the obtained result is within the possible voltage gain range. \\
+$1.11 < A_v < -0.90$\\
+
+For the circuit with -4.7 designed voltage gain, we obtained a voltage gain of -4.79(Figure 7). We noted that the obtained result is within the possible voltage gain range.\\
+$-5.19 < A_v < -4.25$
+
+We observed that when the $V_in$ exceeds a certain threshold, the OP-AMP gets saturated and the output voltage is clipped at around $V_{supply}$.(Figure 8)\\
+
+When we connected our circuits with -1 and -4.7 gains in cascade form, we observed that the output gets non-inverted(Figure 9). We noted that our circuit's voltage gain was within the possible voltage gain range.
+\[3.83 < Av < 5.76\]
+
+The voltage controlled current source configuration was the more difficult compared to the rest of the configurations. The POT value was calibrated using the voltage over the load resistor(Figure 10, Figure 11). We observed that $i_L$ is independent of the load resistor's value(Table 1).
+
+
+
+
+
+
+
+
+\end{document}
