@@ -1,0 +1,104 @@
+\documentclass{article}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[english]{babel}
+\usepackage{caption} % Import the caption package
+\usepackage{siunitx}
+% Set page size and margins
+% Replace `letterpaper' with `a4paper' for UK/EU standard size
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+\title{Your Paper}
+\author{You}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Your abstract.
+\end{abstract}
+
+\section{Theory}
+
+This experiment was about rise time measurement. We can precisely measure time constant of rc and rl circuits using rise time measurement using the relation between time constant and rise time (1).
+
+\[t_r = 2.197\tau \quad (1) \] 
+
+\begin{center}
+    \includegraphics[width = 10cm]{rise time measurement.png}
+    \captionof{figure}{Rise time measurement}
+    \label{fig:centered-figure}
+\end{center}
+
+\newpage
+\section{Applications \& Results}
+
+\subsection{220nF RC circuit}
+We started by calibrating our oscilloscope. Afterwards, we adjusted the signal generator to get 10V peak-to-peak 250Hz square wave.\\
+
+We constructed the RC circuit with 220nF and measured rise time.
+
+\begin{center}
+    \includegraphics[width = 10cm]{220nF.jpeg}
+    \captionof{figure}{100nF measurement}
+    \label{fig:centered-figure}
+\end{center}
+
+We calculated the rise time,
+\[t_r = 7.4 \cdot 0.1ms \pm 10\mu s = 740\mu s \pm 10\mu s\]
+and time constant using the calculated value of rise time according to Equation 1.
+\[\tau = \frac{t_r}{2.197} = 336.83\mu s \pm 4.55\mu s \]
+We calculated the capacitance of the 220nF capacitor using our calculations.
+\[C = \frac{\tau}{R} = \frac{336.83}{2.2}10^{-9} = 155nF\]
+
+\newpage
+\subsection{100nF RC circuit}
+We constructed the RC circuit with 110nF and measured rise time.
+
+\begin{center}
+    \includegraphics[width = 10cm]{100nF.jpeg}
+    \captionof{figure}{100nF measurement}
+    \label{fig:centered-figure}
+\end{center}
+
+We calculated the rise time,
+\[t_r = 6.1 \cdot 0.1ms \pm 0.01s = 610\mu s \pm 10\mu s\]
+and time constant using the calculated value of rise time according to Equation 1.
+\[\tau = \frac{t_r}{2.197} = 277.65\mu s \pm 4.55\mu s \]
+We calculated the capacitance of the 220nF capacitor using our calculations.
+\[C = \frac{\tau}{R} = \frac{278}{2.2}10^{-9} = 126nF\]
+
+\newpage
+\subsection{RL circuit with our toroid}
+We constructed the RL circuit with our previously constructed inductor and measured rise time.
+
+\begin{center}
+    \includegraphics[width = 10cm]{bobin.jpeg}
+    \captionof{figure}{inductor measurement}
+    \label{fig:centered-figure}
+\end{center}
+
+We calculated the rise time,
+\[t_r = 6 \cdot 1\mu s \pm 0.01s = 6\mu s \pm 0.1\mu s\]
+and time constant using the calculated value of rise time according to Equation 1.
+\[\tau = \frac{t_r}{2.197} = 2.73\mu s \pm 45ns \]
+We calculated the capacitance of the 220nF capacitor using our calculations.
+\[L = R \cdot \tau = 610 \cdot 2.73 \cdot 10^{-6} = 1.67mH\]
+We used 610\si{\ohm} because the signal generator has 50\si{\ohm} output impedance.
+We calculated maximum and minimum inductance values,
+
+\[(532 + 50)\si{\ohm} \cdot 2.73s \cdot 10^{-6} < L < (588 + 50)\si{\ohm} \cdot 2.73s \cdot 10^{-6} \]
+\[1.59mH < L < 1.74mH\]
+
+\newpage
+\section{Conclusion}
+
+
+
+\end{document}
