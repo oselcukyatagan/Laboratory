@@ -107,7 +107,7 @@ int main(){
 
    // printf("%d",sumInputs(10));
    // printf("%d", sumUntilNegative());
-    minMax(5);
+   // minMax(5);
    // rightTriangle(4);
    // pyramid(6);
 
