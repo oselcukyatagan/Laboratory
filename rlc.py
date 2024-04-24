@@ -2,13 +2,22 @@ import cmath
 import math
 
 
-def parallel_rlc(resistance, inductance, capacitance):
+def rlc(resistance, inductance, capacitance):
+    print("Type 1 if parallel, 2 if serially connected: ")
+    choice = int(input("Enter an integer: "))
 
     damped = None
     res_freq_square = 1 / (inductance * capacitance)
     res_freq = math.sqrt(res_freq_square)
 
-    neper_freq = 1 / (2 * resistance * capacitance)
+    if choice == 1:
+        neper_freq = 1 / (2 * resistance * capacitance)
+    elif choice == 2:
+        neper_freq = resistance / (2 * inductance)
+    else:
+        print("Invalid choice")
+        return
+
     neper_freq_square = pow(neper_freq, 2)
 
     s_1 = -neper_freq + cmath.sqrt((pow(neper_freq, 2) - res_freq_square))
@@ -28,4 +37,4 @@ def parallel_rlc(resistance, inductance, capacitance):
     print("damped condition:", damped)
 
 
-parallel_rlc(200, 50e-3, 0.2e-6)
+parallel_rlc(20e3, 8, 125e-9)
